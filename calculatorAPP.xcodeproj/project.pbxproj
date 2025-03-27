@@ -18,17 +18,29 @@
 		39DA50F32D95564F00C6D2D3 /* Exceptions for "calculatorAPP" folder in "calculatorAPP" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				calculation.swift,
 				Info.plist,
 			);
 			target = 39DA50E02D95564D00C6D2D3 /* calculatorAPP */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		39DA51002D9573C300C6D2D3 /* Exceptions for "calculatorAPP" folder in "Copy Bundle Resources" phase from "calculatorAPP" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 39DA50DF2D95564D00C6D2D3 /* Resources */;
+			membershipExceptions = (
+				calculation.swift,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		39DA50E32D95564D00C6D2D3 /* calculatorAPP */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				39DA50F32D95564F00C6D2D3 /* Exceptions for "calculatorAPP" folder in "calculatorAPP" target */,
+				39DA51002D9573C300C6D2D3 /* Exceptions for "calculatorAPP" folder in "Copy Bundle Resources" phase from "calculatorAPP" target */,
 			);
 			path = calculatorAPP;
 			sourceTree = "<group>";
