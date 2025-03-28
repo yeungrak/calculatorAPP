@@ -69,42 +69,42 @@ class ViewController: UIViewController {
         
         //plusbutton 구성요소
         plusButton.setTitle("+", for: .normal)
-        plusButton.backgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
+        plusButton.backgroundColor = .orange
         plusButton.layer.cornerRadius = 40
         plusButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
         plusButton.snp.makeConstraints { $0.size.equalTo(80) }
         
         //minusbutton 구성요소
         minusButton.setTitle("-", for: .normal)
-        minusButton.backgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
+        minusButton.backgroundColor = .orange
         minusButton.layer.cornerRadius = 40
         minusButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
         minusButton.snp.makeConstraints { $0.size.equalTo(80) }
         
         //divisionButton 구성요소
         divisionButton.setTitle("/", for: .normal)
-        divisionButton.backgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
+        divisionButton.backgroundColor = .orange
         divisionButton.layer.cornerRadius = 40
         divisionButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
         divisionButton.snp.makeConstraints { $0.size.equalTo(80) }
         
         //multiplyButton 구성요소
         multiplyButton.setTitle("*", for: .normal)
-        multiplyButton.backgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
+        multiplyButton.backgroundColor = .orange
         multiplyButton.layer.cornerRadius = 40
         multiplyButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
         multiplyButton.snp.makeConstraints { $0.size.equalTo(80) }
         
         //resetButton 구성요소
         resetButton.setTitle("AC", for: .normal)
-        resetButton.backgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
+        resetButton.backgroundColor = .orange
         resetButton.layer.cornerRadius = 40
         resetButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
         resetButton.snp.makeConstraints { $0.size.equalTo(80) }
         
         //resultButton 구성요소
         resultButton.setTitle("=", for: .normal)
-        resultButton.backgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
+        resultButton.backgroundColor = .orange
         resultButton.layer.cornerRadius = 40
         resultButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
         resultButton.snp.makeConstraints { $0.size.equalTo(80) }
