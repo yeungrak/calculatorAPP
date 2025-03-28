@@ -57,6 +57,7 @@ class ViewController: UIViewController {
         let stackView2 = makeHoizontalStackView(views: [numberButton[4], numberButton[5], numberButton[6], minusButton])
         let stackView3 = makeHoizontalStackView(views: [numberButton[1], numberButton[2], numberButton[3], multiplyButton])
         let stackView4 = makeHoizontalStackView(views: [resetButton, numberButton[0], resultButton, divisionButton])
+        let verticalStackView = UIStackView(arrangedSubviews: [stackView, stackView2, stackView3, stackView4])
         
         
         
@@ -108,9 +109,15 @@ class ViewController: UIViewController {
         resultButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
         resultButton.snp.makeConstraints { $0.size.equalTo(80) }
         
+        //verticalStackView 구성요소
+        verticalStackView.axis = .vertical
+        verticalStackView.backgroundColor = .black
+        verticalStackView.spacing = 10
+        verticalStackView.distribution = .fillEqually
+        
         
         //forEach로 한번에 뷰에 추가하기
-        [label, stackView, stackView2, stackView3, stackView4]
+        [label, verticalStackView]
             .forEach { view.addSubview($0) }
         
         
@@ -127,20 +134,21 @@ class ViewController: UIViewController {
         //stackView Constraints
         stackView.snp.makeConstraints{
             $0.height.equalTo(80)
-            $0.center.equalToSuperview()
         }
-        
         stackView2.snp.makeConstraints{
             $0.height.equalTo(80)
-            $0.center.equalToSuperview()
         }
         stackView3.snp.makeConstraints{
             $0.height.equalTo(80)
-            $0.center.equalToSuperview()
         }
         stackView4.snp.makeConstraints{
             $0.height.equalTo(80)
-            $0.center.equalToSuperview()
+        }
+        verticalStackView.snp.makeConstraints {
+            $0.width.equalTo(350)
+            $0.top.equalTo(label.snp.bottom).offset(60)
+            $0.centerX.equalToSuperview()
+            
         }
     }
     
