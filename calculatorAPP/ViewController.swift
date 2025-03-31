@@ -107,6 +107,7 @@ class ViewController: UIViewController {
         resetButton.layer.cornerRadius = 40
         resetButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
         resetButton.snp.makeConstraints { $0.size.equalTo(80) }
+        resetButton.addTarget(self, action: #selector(resetButtonTapped), for: .touchDown)
         
         //resultButton 구성요소
         resultButton.setTitle("=", for: .normal)
@@ -174,8 +175,12 @@ class ViewController: UIViewController {
     @objc private func divisionButtonTapped () {
         firstNumber += "/"
         label.text = "\(firstNumber)"
-        
     }
+    @objc private func resetButtonTapped () {
+        firstNumber = "0"
+        label.text = "\(firstNumber)"
+    }
+    
     //    @objc private func numberButtonTapped () {
     //        let selectButton = numberButton
     //        selectButton.
