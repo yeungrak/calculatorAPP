@@ -31,7 +31,6 @@ class ViewController: UIViewController {
         button.snp.makeConstraints { $0.size.equalTo(80) }
         return button
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -106,14 +105,15 @@ class ViewController: UIViewController {
         resetButton.backgroundColor = .orange
         resetButton.layer.cornerRadius = 40
         resetButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
-        resetButton.snp.makeConstraints { $0.size.equalTo(80) }
         resetButton.addTarget(self, action: #selector(resetButtonTapped), for: .touchDown)
+        resetButton.snp.makeConstraints { $0.size.equalTo(80) }
         
         //resultButton 구성요소
         resultButton.setTitle("=", for: .normal)
         resultButton.backgroundColor = .orange
         resultButton.layer.cornerRadius = 40
         resultButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
+        resultButton.addTarget(self, action: #selector (resultValue), for: .touchDown)
         resultButton.snp.makeConstraints { $0.size.equalTo(80) }
         
         //verticalStackView 구성요소
@@ -181,11 +181,13 @@ class ViewController: UIViewController {
         label.text = "\(firstNumber)"
     }
     
-    //    @objc private func numberButtonTapped () {
-    //        let selectButton = numberButton
-    //        selectButton.
-    //        label.text?.append("\(num)")
-    //}
+    @objc private func resultValue () {
+        if let result = resultButtonTapped(expression: firstNumber) {
+            firstNumber = "\(result)"
+            label.text = "\(result)"
+        }
+    }
+    
     @objc private func numberButtonTapped(_ sender: UIButton) {
         guard let numberString = sender.titleLabel?.text else { return }
         if firstNumber == "0" {
@@ -195,7 +197,14 @@ class ViewController: UIViewController {
         }
         label.text = "\(firstNumber)"
     }
-    //145 + firstNumber 14567
+    
+    private func resultButtonTapped(expression: String) -> Int? {
+        let expression = NSExpression(format: expression)
+        if let result = expression.expressionValue(with: nil, context: nil) as? Int {
+            return result
+        } else {
+            return nil
+        }
+    }
     
 }
-///zzgkdl아낭나안ㅇ
