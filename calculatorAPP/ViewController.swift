@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     
     //계산기의 레이블, 버튼등 구성요소 만들기
+    private var firstNumber = "0"
     private let label = UILabel()
     private let stackView = UIStackView()
     private let plusButton = UIButton()
@@ -26,6 +27,7 @@ class ViewController: UIViewController {
         button.backgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
         button.layer.cornerRadius = 40
         button.titleLabel?.font = .boldSystemFont(ofSize: 30)
+        button.addTarget(self, action: #selector(numberButtonTapped), for: .touchDown)
         button.snp.makeConstraints { $0.size.equalTo(80) }
         return button
     }
@@ -62,7 +64,7 @@ class ViewController: UIViewController {
         
         
         //lable 구성요소
-        label.text = "12345"
+        label.text = "0"
         label.textColor = .white
         label.textAlignment = .right
         label.font = UIFont.boldSystemFont(ofSize: 60)
@@ -72,6 +74,7 @@ class ViewController: UIViewController {
         plusButton.backgroundColor = .orange
         plusButton.layer.cornerRadius = 40
         plusButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
+        plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchDown)
         plusButton.snp.makeConstraints { $0.size.equalTo(80) }
         
         //minusbutton 구성요소
@@ -79,6 +82,7 @@ class ViewController: UIViewController {
         minusButton.backgroundColor = .orange
         minusButton.layer.cornerRadius = 40
         minusButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
+        minusButton.addTarget(self, action: #selector(minusButtonTapped), for: .touchDown)
         minusButton.snp.makeConstraints { $0.size.equalTo(80) }
         
         //divisionButton 구성요소
@@ -86,6 +90,7 @@ class ViewController: UIViewController {
         divisionButton.backgroundColor = .orange
         divisionButton.layer.cornerRadius = 40
         divisionButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
+        divisionButton.addTarget(self, action: #selector(divisionButtonTapped), for: .touchDown)
         divisionButton.snp.makeConstraints { $0.size.equalTo(80) }
         
         //multiplyButton 구성요소
@@ -93,6 +98,7 @@ class ViewController: UIViewController {
         multiplyButton.backgroundColor = .orange
         multiplyButton.layer.cornerRadius = 40
         multiplyButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
+        multiplyButton.addTarget(self, action: #selector(multiplyButtonTapped), for: .touchDown)
         multiplyButton.snp.makeConstraints { $0.size.equalTo(80) }
         
         //resetButton 구성요소
@@ -152,6 +158,38 @@ class ViewController: UIViewController {
         }
     }
     
+    //버튼을 클릭했을때 동작
+    @objc private func plusButtonTapped (_ sender: UIButton) {
+        firstNumber += "+"
+        label.text = "\(firstNumber)"
+    }
+    @objc private func minusButtonTapped () {
+        firstNumber += "-"
+        label.text = "\(firstNumber)"
+    }
+    @objc private func multiplyButtonTapped () {
+        firstNumber += "*"
+        label.text = "\(firstNumber)"
+    }
+    @objc private func divisionButtonTapped () {
+        firstNumber += "/"
+        label.text = "\(firstNumber)"
+        
+    }
+    //    @objc private func numberButtonTapped () {
+    //        let selectButton = numberButton
+    //        selectButton.
+    //        label.text?.append("\(num)")
+    //}
+    @objc private func numberButtonTapped(_ sender: UIButton) {
+        guard let numberString = sender.titleLabel?.text else { return }
+        if firstNumber == "0" {
+            firstNumber = numberString
+        } else {
+            firstNumber += numberString
+        }
+        label.text = "\(firstNumber)"
+    }
+    //145 + firstNumber 14567
     
 }
-
