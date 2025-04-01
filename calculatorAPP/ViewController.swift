@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     private let multiplyButton = UIButton()
     private let resetButton = UIButton()
     private let resultButton = UIButton()
+    
+    //숫자 버튼 만들기==
     private let numberButton: [UIButton] = (0...9).map { num in
         let button = UIButton()
         button.setTitle("\(num)", for: .normal)
@@ -31,6 +33,7 @@ class ViewController: UIViewController {
         button.snp.makeConstraints { $0.size.equalTo(80) }
         return button
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -159,22 +162,46 @@ class ViewController: UIViewController {
         }
     }
     
-    //버튼을 클릭했을때 동작
-    @objc private func plusButtonTapped (_ sender: UIButton) {
-        firstNumber += "+"
-        label.text = "\(firstNumber)"
+    //버튼을 클릭했을때 동작 + "+"가 입력된 상태에서 +를 입력할경우의 예외상황 제작
+    @objc private func plusButtonTapped () {
+        let plusButtonException = firstNumber.last
+        if plusButtonException == "+" {
+            label.text = "\(firstNumber)"
+        } else {
+            firstNumber += "+"
+            label.text = "\(firstNumber)"
+        }
     }
+    
     @objc private func minusButtonTapped () {
-        firstNumber += "-"
-        label.text = "\(firstNumber)"
+        let minusButtonException = firstNumber.last
+        if minusButtonException == "-" {
+            label.text = "\(firstNumber)"
+        } else {
+            firstNumber += "-"
+            label.text = "\(firstNumber)"
+        }
     }
+    
     @objc private func multiplyButtonTapped () {
-        firstNumber += "*"
-        label.text = "\(firstNumber)"
+        let multiplyButtonException = firstNumber.last
+        if multiplyButtonException == "*" {
+            label.text = "\(firstNumber)"
+        } else {
+            firstNumber += "*"
+            label.text = "\(firstNumber)"
+        }
+        
     }
+    
     @objc private func divisionButtonTapped () {
-        firstNumber += "/"
-        label.text = "\(firstNumber)"
+        let divisionButtonException = firstNumber.last
+        if divisionButtonException == "/" {
+            label.text = "\(firstNumber)"
+        } else {
+            firstNumber += "/"
+            label.text = "\(firstNumber)"
+        }
     }
     @objc private func resetButtonTapped () {
         firstNumber = "0"
