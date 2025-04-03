@@ -161,21 +161,19 @@ class ViewController: UIViewController {
             
         }
     }
-    
     //버튼을 클릭했을때 동작 + "+"가 입력된 상태에서 +를 입력할경우의 예외상황 제작
     @objc private func plusButtonTapped () {
         let plusButtonException = firstNumber.last
-        if plusButtonException == "+" {
+        if plusButtonException == "+" || plusButtonException == "-" || plusButtonException == "*" || plusButtonException == "/" {
             label.text = "\(firstNumber)"
         } else {
             firstNumber += "+"
             label.text = "\(firstNumber)"
         }
     }
-    
     @objc private func minusButtonTapped () {
         let minusButtonException = firstNumber.last
-        if minusButtonException == "-" {
+        if minusButtonException == "+" || minusButtonException == "-" || minusButtonException == "*" || minusButtonException == "/" {
             label.text = "\(firstNumber)"
         } else {
             firstNumber += "-"
@@ -185,7 +183,7 @@ class ViewController: UIViewController {
     
     @objc private func multiplyButtonTapped () {
         let multiplyButtonException = firstNumber.last
-        if multiplyButtonException == "*" {
+        if multiplyButtonException == "+" || multiplyButtonException == "-" || multiplyButtonException == "*" || multiplyButtonException == "/" {
             label.text = "\(firstNumber)"
         } else {
             firstNumber += "*"
@@ -196,7 +194,7 @@ class ViewController: UIViewController {
     
     @objc private func divisionButtonTapped () {
         let divisionButtonException = firstNumber.last
-        if divisionButtonException == "/" {
+        if divisionButtonException == "+" || divisionButtonException == "-" || divisionButtonException == "*" || divisionButtonException == "/"  {
             label.text = "\(firstNumber)"
         } else {
             firstNumber += "/"
@@ -209,9 +207,14 @@ class ViewController: UIViewController {
     }
     
     @objc private func resultValue () {
-        if let result = resultButtonTapped(expression: firstNumber) {
-            firstNumber = "\(result)"
-            label.text = "\(result)"
+        let resultButtonException = firstNumber.last
+        if resultButtonException == "=" || resultButtonException == "+" || resultButtonException == "-" || resultButtonException == "*" || resultButtonException == "/" {
+            label.text = "\(firstNumber)"
+        } else {
+            if let result = resultButtonTapped(expression: firstNumber) {
+                firstNumber = "\(result)"
+                label.text = "\(result)"
+            }
         }
     }
     
@@ -235,3 +238,4 @@ class ViewController: UIViewController {
     }
     
 }
+
